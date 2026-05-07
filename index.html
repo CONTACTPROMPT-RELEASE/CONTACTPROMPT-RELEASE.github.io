@@ -48,7 +48,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Learning Dense Hand Contact Estimation from Imbalanced Data</h1>
+          <h1 class="title is-1 publication-title">Training-Free Dense Hand Contact Estimation with Multi-Modal Large Language Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://dqj5182.github.io/">Daniel Sungho Jung</a>,
@@ -95,16 +95,17 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Hands are essential to human interaction, and understanding contact between hands and the world can promote comprehensive understanding of their function. 
-            Recently, there have been growing number of hand interaction datasets that cover interaction with object, other hand, scene, and body. 
-            Despite the significance of the task and increasing high-quality data, how to effectively learn dense hand contact estimation remains largely underexplored. 
-            There are two major challenges for learning dense hand contact estimation. 
-            First, there exists class imbalance issue from hand contact datasets where majority of samples are not in contact. 
-            Second, hand contact datasets contain spatial imbalance issue with most of hand contact exhibited in finger tips, resulting in challenges for generalization towards contacts in other hand regions. 
-            To tackle these issues, we present a framework that learns dense HAnd COntact estimation (HACO) from imbalanced data. 
-            To resolve the class imbalance issue, we introduce balanced contact sampling, which builds and samples from multiple sampling groups that fairly represent diverse contact statistics for both contact and non-contact samples. 
-            Moreover, to address the spatial imbalance issue, we propose vertex-level class-balanced (VCB) loss, which incorporates spatially varying contact distribution by separately reweighting loss contribution of each vertex based on its contact frequency across dataset. 
-            As a result, we effectively learn to predict dense hand contact estimation with large-scale hand contact data without suffering from class and spatial imbalance issue. 
+            Dense hand contact estimation requires both high-level semantic understanding and fine-grained geometric reasoning of human interaction to accurately localize contact regions. 
+            Recently, multi-modal large language models (MLLMs) have demonstrated strong capabilities in understanding visual semantics, enabled by vision–language priors learned from large-scale data. 
+            However, leveraging MLLMs for dense hand contact estimation remains underexplored. 
+            There are two major challenges in applying MLLMs to dense hand contact estimation. 
+            First, encoding explicit 3D hand geometry is difficult, as MLLMs primarily operate on vision and language modalities. 
+            Second, capturing fine-grained vertex-level contact remains challenging, as MLLMs tend to focus on high-level semantics rather than detailed geometric reasoning. 
+            To address these challenges, we propose ContactPrompt, a training-free and zero-shot approach for dense hand contact estimation using MLLMs. 
+            To effectively encode 3D hand geometry, we introduce a detailed hand-part segmentation and a part-wise vertex-grid representation that provides structured, localized geometric information. 
+            To enable accurate and efficient dense contact prediction, we develop a multi-stage structured contact reasoning with part conditioning, progressively bridging global semantics and fine-grained geometry. 
+            Therefore, our method effectively leverages the reasoning capabilities of MLLMs while enabling precise dense hand contact estimation. 
+            Surprisingly, the proposed approach outperforms previous supervised methods trained on large-scale dense contact datasets without requiring any training. 
             The codes will be released.
           </p>
         </div>
