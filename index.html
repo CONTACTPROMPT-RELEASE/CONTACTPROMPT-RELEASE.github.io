@@ -142,9 +142,10 @@
         <h2 class="title is-3">Model Architecture</h2>
         <div class="content has-text-justified">
           <p>
-            Our method encodes input image as image tokens with a ViT backbone after patch embedding layers. 
-            Given the image tokens along with positional embeddings and a contact token, multiple layers of self-attention Transformer and cross-attention Transformer produce an output token. 
-            Lastly, the output token is further processed with a linear layer and added with contact initialization that passes sigmoid layer to output final hand contact prediction.
+            Given an input image and text prompt, we first perform free-form reasoning with MLLMs to produce global interaction description. 
+            Next, part-level contact prediction is performed using the input image, global interaction description, text prompt, and hand part segmentation to obtain predicted contact parts. 
+            Moreover, dense vertex-level contact is estimated by providing the input image, text prompt, predicted contact part, full visual prompt, and part-wise vertex grid specification, producing part-wise grid outputs. 
+            Lastly, the output is mapped to final dense hand contact map.
           </p>
         </div>
         <img src="./static/images/haco_overall_pipeline.png" height="250%">
